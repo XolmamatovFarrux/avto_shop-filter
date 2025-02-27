@@ -17,10 +17,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="{% url 'cars' %}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="{% url 'cars' %}">Car_Brands</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'add_cars' %}">Add_cars</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -51,10 +54,10 @@
 
 <div class="row">
     <div class="col-3">
-        <ul class="list-group">
-            <li class="list-group-item active" aria-current="true">car</li>
-            {% for item in car %}
-                <li class="list-group-item">{{ item.brand }}</li>
+        <ul class="list-group text-center mt-4  ">
+            <li class="list-group-item active" aria-current="true">Car brand</li>
+            {% for item in car_s %}
+                <li class="list-group-item text-center"><a href="{% url 'car_s' item.pk %}">{{ item.brand }}</a></li>
             {% endfor %}
         </ul>
     </div>
@@ -66,23 +69,24 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-7">
                             {% if item.image %}
-                                <img src="{{ item.image.url }}" alt="" width="350">
+                                <img src="{{ item.image.url }}" alt="" width="550">
                             {% else %}
                                 <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fxs.uz%2Fuz%2Fpost%2F2021-jilgi-eng-qimmat-avtomobillar-top-15-taligi-elon-qilindi&psig=AOvVaw1ibfTfzuKgoPjCStL7ORsH&ust=1740479800870000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCNioz92O3IsDFQAAAAAdAAAAABAE"
                                      alt="" width="350">
 
                             {% endif %}
                         </div>
-                        <div class="col-6">
+                        <div class="col-5">
                             <h6 class="card-title">{{ item.title }}</h6>
                             <p class="card-text">{{ item.color }}</p>
                             <p class="card-text">{{ item.year }}</p>
                             <p class="card-text">{{ item.price }}</p>
                             <p class="card-text">{{ item.context|safe|linebreaks|truncatewords:30 }}</p>
                             <p class="card-text">{{ item.horsepower }}</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <button type="button" class="btn btn-info">Info</button>
+
                         </div>
                     </div>
 
@@ -92,7 +96,7 @@
                 </div>
             </div>
         {% endfor %}
-</div>
+    </div>
 </div>
 
 
