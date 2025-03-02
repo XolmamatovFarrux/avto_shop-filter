@@ -85,7 +85,7 @@
                             <p class="card-text">{{ item.price }}</p>
                             <p class="card-text">{{ item.context|safe|linebreaks|truncatewords:30 }}</p>
                             <p class="card-text">{{ item.horsepower }}</p>
-                            <button type="button" class="btn btn-info">Info</button>
+                            <a href="{% url 'info' item.pk %}" class="btn btn-primary">Info</a>
 
                         </div>
                     </div>

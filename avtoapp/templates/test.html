@@ -83,7 +83,7 @@
                             <p class="card-text">{{ item.price }}</p>
                             <p class="card-text">{{ item.context|safe|linebreaks|truncatewords:30 }}</p>
                             <p class="card-text">{{ item.horsepower }}</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <a href="{% url 'info' item.pk %}" class="btn btn-primary" >Info</a>
                         </div>
                     </div>
 
